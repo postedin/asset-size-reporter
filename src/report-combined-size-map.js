@@ -48,6 +48,9 @@ function formatLine(path, before, after) {
     if (before.gzip !== null) {
       output += chalk` {dim /} ${formatDiff(before.gzip)} {dim gzip}`;
     }
+    if (before.brotli !== null) {
+      output += chalk` {dim /} ${formatDiff(before.brotli)} {dim brotli}`;
+    }
     output += ` (deleted file)`;
 
     output = chalk.gray(output);
@@ -58,6 +61,10 @@ function formatLine(path, before, after) {
     if (after.gzip !== null) {
       output += chalk` {dim /} ${formatDiff(after.gzip)} {dim gzip}`;
     }
+
+    if (after.brotli !== null) {
+      output += chalk` {dim /} ${formatDiff(after.brotli)} {dim brotli}`;
+    }
     output += ` (new file)`;
 
     output = chalk.blue(output);
@@ -67,6 +74,11 @@ function formatLine(path, before, after) {
     output += formatDiff(before.raw, after.raw);
     if (before.gzip !== null && after.gzip !== null) {
       output += chalk` {dim /} ${formatDiff(before.gzip, after.gzip)} {dim gzip}`;
+    }
+
+
+    if (before.brotli !== null && after.brotli !== null) {
+      output += chalk` {dim /} ${formatDiff(before.brotli, after.brotli)} {dim brotli}`;
     }
 
     if (before.raw > after.raw) {
