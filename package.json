@@ -1,5 +1,5 @@
 {
-  "name": "asset-size-reporter",
+  "name": "@postedin/asset-size-reporter",
   "version": "0.1.0",
   "description": "Generic asset size comparison and reporting tool",
   "license": "MIT",
